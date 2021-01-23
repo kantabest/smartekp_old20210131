@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    @GetMapping("login/401")
+    @GetMapping("login/err401")
     public String err401() {
-        return "login/401";
+        return "login/err401";
     }
 
-    @GetMapping("login/404")
+    @GetMapping("login/err404")
     public String err404() {
-        return "login/404";
+        return "login/err404";
     }
     
-    @GetMapping("login/500")
+    @GetMapping("login/err500")
     public String err500() {
-        return "login/500";
+        return "login/err500";
     }
 
     @GetMapping("login/login")
