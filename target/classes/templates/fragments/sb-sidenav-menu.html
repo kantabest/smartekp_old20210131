@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div class="sb-sidenav-menu" th:fragment="sb-sidenav-menu">
+      <div class="nav">
+          <div class="sb-sidenav-menu-heading">Core</div>
+          <a class="nav-link" th:href="index">
+              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+              Dashboard
+          </a>
+          <div class="sb-sidenav-menu-heading">Interface</div>
+          
+ 
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApprovals" aria-expanded="false" aria-controls="collapseApprovals">
+            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+            APPROVAL
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapseApprovals" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" th:href="@{/approval/receiveApproval}">수신 결재함</a>
+                <a class="nav-link" th:href="@{/approval/sendApproval}">상신 결재함</a>
+                <a class="nav-link" th:href="@{/approval/proceedingApproval}">진행 결재함</a>
+                <a class="nav-link" th:href="@{/approval/rejectApproval}">반려 결재함</a>
+                <a class="nav-link" th:href="@{/approval/holdApproval}">보류 결재함</a>
+                <a class="nav-link" th:href="@{/approval/successApproval}">승인 결재함</a>
+                
+            </nav>
+          </div>
+
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoards" aria-expanded="false" aria-controls="collapseBoards">
+              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+              BBS
+              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapseBoards" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" th:href="@{/board/noticsBoard}">공지 게시판</a>
+                  <a class="nav-link" th:href="@{/board/deptBoard}">부서 게시판</a>
+                  <a class="nav-link" th:href="@{/board/jobBoard}">업무 게시판</a>
+                  <a class="nav-link" th:href="@{/board/freeBoard}">자유 게시판</a>
+                  <a class="nav-link" th:href="@{/board/planBoard}">일정 게시판</a>
+                  <a class="nav-link" th:href="@{/board/qnaBoard}">Q&A 게시판</a>
+                  <a class="nav-link" th:href="@{/board/vocBoard}">VoC 게시판</a>
+              </nav>
+          </div>
+
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePlans" aria-expanded="false" aria-controls="collapsePlans">
+            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+            PLAN
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapsePlans" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" th:href="@{/plan/personalPlan}">개인 일정</a>
+                  <a class="nav-link" th:href="@{/plan/departmentPlan}">부서 일정</a>
+                  <a class="nav-link" th:href="@{/plan/companyPlan}">장암 일정</a>
+              </nav>
+          </div>
+
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReservations" aria-expanded="false" aria-controls="collapseReservations">
+            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+            RESERVATION
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapseReservations" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" th:href="layout-static">차량 예약</a>
+                  <a class="nav-link" th:href="layout-static">회의 예약</a>
+                  <a class="nav-link" th:href="layout-static">콘도 예약</a>
+                  <a class="nav-link" th:href="layout-static">카드 예약</a>
+              </nav>
+          </div>          
+
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOthers" aria-expanded="false" aria-controls="collapseOthers">
+            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+            OTHER
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapseOthers" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" th:href="layout-static">설문조사</a>
+                  <a class="nav-link" th:href="layout-static">자료실</a>
+                  <a class="nav-link" th:href="layout-static">주소록</a>
+                  <a class="nav-link" th:href="layout-static">접속자</a>
+                  <a class="nav-link" th:href="layout-static">동호회</a>
+                  <a class="nav-link" th:href="layout-static">블로그</a>
+              </nav>
+          </div>          
+
+ 
+ 
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+              Pages
+              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                      Authentication
+                      <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                  </a>
+                  <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                      <nav class="sb-sidenav-menu-nested nav">
+                          <a class="nav-link" href="login.html">Login</a>
+                          <a class="nav-link" href="register.html">Register</a>
+                          <a class="nav-link" href="password.html">Forgot Password</a>
+                      </nav>
+                  </div>
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                      Error
+                      <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                  </a>
+                  <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                      <nav class="sb-sidenav-menu-nested nav">
+                          <a class="nav-link" href="401.html">401 Page</a>
+                          <a class="nav-link" href="404.html">404 Page</a>
+                          <a class="nav-link" href="500.html">500 Page</a>
+                      </nav>
+                  </div>
+              </nav>
+          </div>
+          <div class="sb-sidenav-menu-heading">Addons</div>
+          <a class="nav-link" href="charts.html">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              Charts
+          </a>
+          <a class="nav-link" href="tables.html">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              Tables
+          </a>
+      </div>
+  </div>
+</body>
+  
+</html>
