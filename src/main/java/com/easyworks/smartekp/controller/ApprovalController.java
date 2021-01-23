@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ApprovalController {
 
     // 수신 결재함
+    @GetMapping("approval/createApproval")
+    public String createApproval() {
+        return "approval/createApproval";
+    }
+
+    // 수신 결재함
     @GetMapping("approval/receiveApproval")
     public String receiveApproval() {
         return "approval/receiveApproval";
