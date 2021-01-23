@@ -15,7 +15,7 @@ public class PlanController {
     public String departmentPlan() {
         return "plan/departmentPlan";
     }
-    
+    // 123
       @GetMapping("plan/companyPlan")
     public String companyPlan() {
         return "plan/companyPlan";
