@@ -26,12 +26,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h4 class="mt-4">작성 결재함</h4>
-                        <ol class="breadcrumb mb-4">
+                        <h4 class="mt-4">새로 작성하기</h4>
+                        <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a th:href="index">신규작성</a></li>
                             <li class="breadcrumb-item active">결재문서를 작성하시려면 신규작성을 클릭하세요.</li>
-                        </ol>
-                        <div class="card mb-4">
+                        </ol> -->
+                        <!-- <div class="card mb-4">
                             <div class="card-body">
                                 <p class="mb-0">
                                     This page is an example of using static navigation. By removing the
@@ -41,8 +41,17 @@
                                     , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
                                 </p>
                             </div>
-                        </div>
-
+                        </div> -->
+                         
+                        <div class="container">
+                            <div class="row align-items-start">
+                                <select class="form-control">
+                                    <option selected>결재문서를 선택하세요</option>
+                                    <option>기안문</option>
+                                    <option>협조문</option>
+                                    <option>보고서</option>
+                                </select>
+                            </div>
                         <div class="container-fluid">
                             <h5 class="mt-4">지난 결재 문서</h5>
                             <ol class="breadcrumb mb-4">
@@ -70,7 +79,7 @@
                                                     <th>제목</th>
                                                     <th>문서종류</th>
                                                     <th>결재상태</th>
-                                                    <th>최종결재일</th>
+                                                    <th>최근결재일</th>
                                                     <th>최종결재자</th>
                                                 </tr>
                                             </thead>
@@ -80,7 +89,7 @@
                                                     <th>제목</th>
                                                     <th>문서종류</th>
                                                     <th>결재상태</th>
-                                                    <th>최종결재일</th>
+                                                    <th>최근결재일</th>
                                                     <th>최종결재자</th>
                                                 </tr>
                                             </tfoot>
@@ -90,6 +99,34 @@
                                                     <td>그룹웨어 시스템 개편</td>
                                                     <td>기안문</td>
                                                     <td>승인</td>
+                                                    <!-- 작성-진행-승인(반려) -->
+                                                    <td>2021/01/27</td>
+                                                    <td>변갑석</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>2021/01/25</td>
+                                                    <td>공장자동화 도입 설비 교체</td>
+                                                    <td>기안문</td>
+                                                    <td>반려</td>
+                                                    <!-- 작성-진행-승인(반려) -->
+                                                    <td>2021/01/27</td>
+                                                    <td>구연찬</td>
+
+                                                </tr><tr>
+                                                    <td>2021/01/29</td>
+                                                    <td>인사조직도 변경 분석의 건</td>
+                                                    <td>보고서</td>
+                                                    <td>작성</td>
+                                                    <!-- 작성-진행-승인(반려) -->
+                                                    <td>2021/01/27</td>
+                                                    <td>박효은</td>
+
+                                                </tr><tr>
+                                                    <td>2021/01/25</td>
+                                                    <td>ERP 차세대 전략 및 스마트 팩토리 도입</td>
+                                                    <td>협조문</td>
+                                                    <td>진행</td>
                                                     <!-- 작성-진행-승인(반려) -->
                                                     <td>2021/01/27</td>
                                                     <td>변갑석</td>
