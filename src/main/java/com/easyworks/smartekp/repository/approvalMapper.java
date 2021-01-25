@@ -11,4 +11,5 @@ public interface approvalMapper {
     approvalModel selectApprovalById(Long id);
     List<approvalModel> selectAllApproval();
     void insertCity(approvalModel city);
+    // final
 }
