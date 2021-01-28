@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.easyworks.smartekp.member.service.MemberMapper">
+
+	<select id="getMemberInfo" resultType="Member">
+		<![CDATA[
+			select id = a.id,
+			       pw = a.pw,
+			       role = a.emp_role,
+			       regid = a.reg_id,
+			       enabled = a.use_yn,
+			       name = b.nm,
+			       team = c.dept_nm
+			  from SpringBoot_MobileMES_Member a
+			  join scu100 b on a.reg_id = b.reg_id
+			  join hra200 c on b.dept_cd = c.dept_cd
+			 where 1=1
+			   and a.id = #{id}
+		]]>
+	</select>
+	
+	<select id="getMemberList" resultType="Member">
+		<![CDATA[
+			select id = a.id, role = a.emp_role, regid = a.reg_id,
+				   enabled = a.use_yn, name = b.nm, team = c.dept_nm, statusCode = d.stat_bc
+			  from SpringBoot_MobileMES_Member a
+			  join scu100 b on a.reg_id = b.reg_id
+			  join hra200 c on b.dept_cd = c.dept_cd
+			  join hra100 d on b.emp_no = d.emp_no
+			 order by c.dept_cd, a.emp_role, a.id
+		]]>
+	</select>
+	
+	<insert id="insertMember">
+		<![CDATA[
+			if exists (select id from SpringBoot_MobileMES_Member where id = #{id}) begin
+				return
+			end
+			
+			insert into SpringBoot_MobileMES_Member (id, pw, emp_role, use_yn, reg_id)
+			select id = #{id}, pw = #{pw}, emp_role = #{role}, use_yn = #{enabled}, reg_id = a.reg_id
+			  from scu100 a
+			  join hra200 b on a.dept_cd = b.dept_cd
+			  join hra100 c on a.emp_no = c.emp_no
+			 where 1=1
+			   and a.emp_no = #{id}
+		]]>
+	</insert>
+	
+	<!-- 관리자가 사용자의 정보를 변경시, 패스워드 변경을 하지 않을수도 있으므로 if로 분기처리. -->
+	<update id="updateMember">
+		<![CDATA[
+			if not exists (select id from SpringBoot_MobileMES_Member where id = #{id}) begin
+				return
+			end
+		
+			if(isnull(#{pw}, '') != '') begin
+				update a
+				   set a.pw = #{pw}
+	  			  from SpringBoot_MobileMES_Member a
+	  			 where 1=1
+	  			   and a.id = #{id}
+			end
+			
+			update a
+			   set a.emp_role = #{role},
+			       a.use_yn = #{enabled}
+  			  from SpringBoot_MobileMES_Member a
+  			 where 1=1
+  			   and a.id = #{id}
+		]]>
+	</update>
+	
+	<delete id="deleteMember">
+		<![CDATA[
+			delete a from SpringBoot_MobileMES_Member a where a.id = #{id}
+		]]>
+	</delete>
+	
+	<!-- 로그인한 사용자가 자신의 패스워드 변경시 -->
+	<update id="updatePassword">
+		<![CDATA[
+			update a
+			   set a.pw = #{pw}
+  			  from SpringBoot_MobileMES_Member a
+  			 where 1=1
+  			   and a.id = #{id}
+		]]>
+	</update>
+	
+	<select id="setPushMessage" resultType="String">
+		<![CDATA[
+			exec SpringBoot_MobileMES_setPushMessage #{regId}, #{pushMessage}
+		]]>
+	</select>
+</mapper>

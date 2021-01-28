@@ -9,9 +9,12 @@ public class SecurityUser extends User {
     private static final long serialVersionUID = 1L;
     private Member member;
 
+    
+
     public SecurityUser(Member member) {
         super(member.getId(), member.getPw(), member.isEnabled(), true, true, true,
-        		AuthorityUtils.createAuthorityList(member.getRole()));
+                AuthorityUtils.createAuthorityList(member.getRole()));
+                        
         this.member = member;
     }
 
