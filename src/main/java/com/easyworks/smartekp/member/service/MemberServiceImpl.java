@@ -31,7 +31,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public void insertMember(Member member) {
-		member.setPw(encoder.encode(member.getPw()));
+		// member.setPw(encoder.encode(member.getPw()));
+		// Use database encryt function for login password
 		member.setEnabled(true);
 		memberMapper.insertMember(member);
 	}
