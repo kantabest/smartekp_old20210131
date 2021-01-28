@@ -32,9 +32,9 @@ public class MemberController {
 	
 	@GetMapping("/member/memberInfo")
 	public String memberInfo(Model model, @AuthenticationPrincipal SecurityUser loginUser, Member member) {
-		member.setTeam(loginUser.getMember().getTeam());
-		member.setName(loginUser.getMember().getName());
-		member.setId(loginUser.getMember().getId());
+		member.setTeamName(loginUser.getMember().getTeamName());
+		member.setMemberName(loginUser.getMember().getMemberName());
+		member.setMemberId(loginUser.getMember().getMemberId());
 		model.addAttribute("memberInfo", member);
 		return "member/memberInfo";
 	}

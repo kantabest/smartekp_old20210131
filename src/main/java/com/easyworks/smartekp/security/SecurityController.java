@@ -32,24 +32,24 @@ public class SecurityController {
 	// 권한별로 화면 분기 처리
 	@GetMapping("/main")
 	public String main(@AuthenticationPrincipal SecurityUser loginUser) {
-		switch (loginUser.getMember().getRole()) {
+		switch (loginUser.getMember().getMemberRole()) {
 		case "admin":
 			return "main";
 			
-		case "logistics":
-			return "logistics/logisticsMain";
+		// case "logistics":
+		// 	return "logistics/logisticsMain";
 			
-		case "packing":
-			return "packing/packingMain";
+		// case "packing":
+		// 	return "packing/packingMain";
 			
-		case "process":
-			return "process/processMain";
+		// case "process":
+		// 	return "process/processMain";
 		
-		case "subdivision":
-			return "subdivision/subdivisionMain";
+		// case "subdivision":
+		// 	return "subdivision/subdivisionMain";
 			
-		case "sales":
-			return "sales/salesMain";
+		// case "sales":
+		// 	return "sales/salesMain";
 			
 		default:
 			return "error/403";

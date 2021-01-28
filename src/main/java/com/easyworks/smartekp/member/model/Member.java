@@ -11,13 +11,22 @@ import lombok.ToString;
 @ToString
 
 public class Member {
-	private String id;
-	private String pw;
-	private String role;
-	private boolean enabled;
-	private int regId;
-	private String team;
-	private String name;
+	
+	//database info
+	private String memberId;
+	private String memberName;
+	private String loginId;
+	private String loginPw;
+	private String memberRole;
+	private boolean usedYn; 
+	private String remarks;
+	private int updaterId;
+	private String updatedDt;
+
+
+	// reference info
+	private String teamCode;
+	private String teamName;	
 	private String statusCode;
 }
 

@@ -22,8 +22,8 @@ public class MemberServiceImpl implements MemberService {
 		this.memberMapper = memberMapper;
 	}
 	
-	public Optional<Member> getMemberInfo(String id) {
-		return memberMapper.getMemberInfo(id);
+	public Optional<Member> getMemberInfo(String member_id) {
+		return memberMapper.getMemberInfo(member_id);
 	}
 	
 	public List<Member> getMemberList() {
@@ -33,13 +33,13 @@ public class MemberServiceImpl implements MemberService {
 	public void insertMember(Member member) {
 		// member.setPw(encoder.encode(member.getPw()));
 		// Use database encryt function for login password
-		member.setEnabled(true);
+		// member.setEnabled(true);
 		memberMapper.insertMember(member);
 	}
 	
 	public void updateMember(Member member) {
-		if(!member.getPw().equals(""))
-			member.setPw(encoder.encode(member.getPw()));
+		if(!member.getLoginPw().equals(""))
+			// member.setPw(encoder.encode(member.getPw()));
 		memberMapper.updateMember(member);
 	}
 	
@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public void updatePassword(Member member) {
-		member.setPw(encoder.encode(member.getPw()));
+		member.setLoginPw(encoder.encode(member.getLoginPw()));
 		memberMapper.updatePassword(member);
 	}
 	

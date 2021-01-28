@@ -12,8 +12,8 @@ public class SecurityUser extends User {
     
 
     public SecurityUser(Member member) {
-        super(member.getId(), member.getPw(), member.isEnabled(), true, true, true,
-                AuthorityUtils.createAuthorityList(member.getRole()));
+        super(member.getMemberId(), member.getLoginPw(), member.isUsedYn(), true, true, true,
+                AuthorityUtils.createAuthorityList(member.getMemberRole()));
                         
         this.member = member;
     }
